@@ -8,41 +8,45 @@ Link untuk Aplikasi [Bayu's Inventory](https://bayuinventory.adaptable.app/)
 ### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
 1. Pertama saya membuat projek django baru dan mengaktifkan virtual environment yang berguna untuk mengisolasi package serta dependencies dari aplikasi. Mengaktifkan virtual environment dengan perintah berikut:
 
- '''shell
+ ```shell
  python -m venv env
- '''
-
- Karena saya menjalankannya di windows maka:
- 
- '''shell
- env\Scripts\activate.bat
- '''
+ ```
+ ```shell
+ #Windows
+    env\Scripts\activate.bat
+ # Linux/Unix, e.g. Ubuntu, MacOS
+    source env/bin/activate
+ ```
 
 2. Menyiapkan Dependencies (library, framework, package) dengan membuat requirements.txt 
 - jalankan perintah:
 
-'''shell
+```shell
 pip install -r requirements.txt
-'''
+```
 
 - dan buat proyek Django bernama BayuInventory dengan perintah:
 
-'''shell
+```shell
 django-admin startproject BayuInventory
-'''
+```
 
 3. Mengonfigurasi proyek dan menjalankan server
-- Menambahkan "*" pada ALLOWED_HOST di settings.py untuk keperluan deploy
+- Menambahkan `"*"` pada `ALLOWED_HOST` di `settings.py` untuk keperluan deploy
 - Menjalankan command:
 
-'''shell
+```shell
 python manage.py runserver 
-''' 
+``` 
 
 - cek di http://localhost:8000 untuk melihat apakah berhasil atau tidak
 
 4. Membuat aplikasi main dalam Proyek
-- jalankan '''python manage.py startapp main'''
+- jalankan 
+```shell
+python manage.py startapp main
+```
+
 - Mendaftarkan aplikasi `main` pada `INSTALLED_APPS` di `settings.py`
 
 5. Buat direktori bernama `templates` didalam direktori main dan buat file `main.html` yang akan berisi template bagaimana tampilan web nanti
@@ -52,21 +56,21 @@ python manage.py runserver
 7. Membuat dan mengaplikasikan Migrasi Model
 - melakukannya dengan cara menjalankan perintah 
 
-'''shell 
+```shell 
 python manage.py makemigrations
-'''
+```
 - Penerapan migrasi dengan
 
-'''shell
+```shell
 python manage.py migrate 
-'''
+```
 
 8. Menghubungkan views dengan template
 - Tambahkan code berikut pada `views.py` di dalam aplikasi `main` 
 
-'''shell
+```shell
 from django.shortcuts import render 
-'''
+```
 
 - Menambahkan fungsi show_main yang akan mengembalikan tampilan yang sesuai
 
@@ -78,7 +82,7 @@ from django.shortcuts import render
 
 ### 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, dan models.py, dan berkas html
 
-
+<img src= "image/FlowChartOrDiagram.png">
 
 ### 3. Jelaskan mengapa kita menggunakan virtual environment, apakah bisa membuat aplikasi web berbasis Django tanpa virtual environment?
 
