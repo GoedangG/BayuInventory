@@ -82,13 +82,13 @@ Link untuk Aplikasi [Bayu's Inventory](https://bayuinventory.adaptable.app/)
 
 ### 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, dan models.py, dan berkas html
 
-    <img src= "image/FlowChartOrDiagram.png">
+<img src= "image/FlowChartOrDiagram.png">
 
 ### 3. Jelaskan mengapa kita menggunakan virtual environment, apakah bisa membuat aplikasi web berbasis Django tanpa virtual environment?
 
-    Alasan menggunakan virtual environment adalah agar ketika rilis Django versi baru kita tetap dapat menjalankan aplikasi kita tanpa masalah seperti masalah perubahan fungsi ataupun tidak bisa berjalan pada modul terbaru. 
+Alasan menggunakan virtual environment adalah agar ketika rilis Django versi baru kita tetap dapat menjalankan aplikasi kita tanpa masalah seperti masalah perubahan fungsi ataupun tidak bisa berjalan pada modul terbaru. 
 
-    Kita tetap bisa membuat aplikasi web berbasis Django tanpa virtual environment, namun dengan resiko seperti yang sudah dijelaskan diatas.
+Kita tetap bisa membuat aplikasi web berbasis Django tanpa virtual environment, namun dengan resiko seperti yang sudah dijelaskan diatas.
 
 ### 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan ketiganya
 - MVT: arsitektur untuk memisahkan konponen utama dari sebuah aplikasi (Model, View, Template)
