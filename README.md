@@ -8,26 +8,26 @@ Link untuk Aplikasi [Bayu's Inventory](https://bayuinventory.adaptable.app/)
 ### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
 1. Pertama saya membuat projek django baru dan mengaktifkan virtual environment yang berguna untuk mengisolasi package serta dependencies dari aplikasi. Mengaktifkan virtual environment dengan perintah berikut:
 
- '''`shell`
+ '''shell
  python -m venv env
  '''
 
  Karena saya menjalankannya di windows maka:
  
- '''`shell`
+ '''shell
  env\Scripts\activate.bat
  '''
 
 2. Menyiapkan Dependencies (library, framework, package) dengan membuat requirements.txt 
 - jalankan perintah:
 
-'''`shell`
+'''shell
 pip install -r requirements.txt
 '''
 
 - dan buat proyek Django bernama BayuInventory dengan perintah:
 
-'''`shell`
+'''shell
 django-admin startproject BayuInventory
 '''
 
@@ -35,7 +35,7 @@ django-admin startproject BayuInventory
 - Menambahkan "*" pada ALLOWED_HOST di settings.py untuk keperluan deploy
 - Menjalankan command:
 
-'''`shell`
+'''shell
 python manage.py runserver 
 ''' 
 
@@ -52,18 +52,19 @@ python manage.py runserver
 7. Membuat dan mengaplikasikan Migrasi Model
 - melakukannya dengan cara menjalankan perintah 
 
-'''`shell` 
+'''shell 
 python manage.py makemigrations
 '''
 - Penerapan migrasi dengan
 
-'''`shell`
+'''shell
 python manage.py migrate 
 '''
 
 8. Menghubungkan views dengan template
 - Tambahkan code berikut pada `views.py` di dalam aplikasi `main` 
-'''`shell`
+
+'''shell
 from django.shortcuts import render 
 '''
 
