@@ -15,12 +15,13 @@ Link untuk Aplikasi [Bayu's Inventory](https://bayuinventory.adaptable.app/)
  env\Scripts\activate.bat
  '''
 
-2. Menyiapkan Dependencies (library, framework, package) dengan membuat requirements.txt dan menjalankan perintah:
-'''
+2. Menyiapkan Dependencies (library, framework, package) dengan membuat requirements.txt 
+- jalankan perintah:
+'''shell
 pip install -r requirements.txt
 '''
-dan buat proyek Django bernama BayuInventory dengan perintah:
-'''
+- dan buat proyek Django bernama BayuInventory dengan perintah:
+'''shell
 django-admin startproject BayuInventory
 '''
 
