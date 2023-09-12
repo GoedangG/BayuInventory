@@ -7,48 +7,71 @@ Link untuk Aplikasi [Bayu's Inventory](https://bayuinventory.adaptable.app/)
 
 ### 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
 1. Pertama saya membuat projek django baru dan mengaktifkan virtual environment yang berguna untuk mengisolasi package serta dependencies dari aplikasi. Mengaktifkan virtual environment dengan perintah berikut:
- '''
+
+ '''`shell`
  python -m venv env
  '''
+
  Karena saya menjalankannya di windows maka:
- '''
+ 
+ '''`shell`
  env\Scripts\activate.bat
  '''
 
 2. Menyiapkan Dependencies (library, framework, package) dengan membuat requirements.txt 
 - jalankan perintah:
-'''shell
+
+'''`shell`
 pip install -r requirements.txt
 '''
+
 - dan buat proyek Django bernama BayuInventory dengan perintah:
-'''shell
+
+'''`shell`
 django-admin startproject BayuInventory
 '''
 
 3. Mengonfigurasi proyek dan menjalankan server
 - Menambahkan "*" pada ALLOWED_HOST di settings.py untuk keperluan deploy
-- Menjalankan command ''' python manage.py runserver ''' di shell
+- Menjalankan command:
+
+'''`shell`
+python manage.py runserver 
+''' 
+
 - cek di http://localhost:8000 untuk melihat apakah berhasil atau tidak
 
 4. Membuat aplikasi main dalam Proyek
 - jalankan '''python manage.py startapp main'''
-- Mendaftarkan aplikasi 'main' pada INSTALLED_APPS di settings.py
+- Mendaftarkan aplikasi `main` pada `INSTALLED_APPS` di `settings.py`
 
-5. Buat direktori bernama templates didalam direktori main dan buat file main.html yang akan berisi template bagaimana tampilan web nanti
+5. Buat direktori bernama `templates` didalam direktori main dan buat file `main.html` yang akan berisi template bagaimana tampilan web nanti
 
-6. Mengubah models.py sesuai dengan yang dibutuhkan atau diinginkan
+6. Mengubah `models.py` sesuai dengan yang dibutuhkan atau diinginkan
 
 7. Membuat dan mengaplikasikan Migrasi Model
-- melakukannya dengan cara menjalankan perintah ''' python manage.py makemigrations '''
-- Penerapan migrasi dengan ''' python manage.py migrate '''
+- melakukannya dengan cara menjalankan perintah 
+
+'''`shell` 
+python manage.py makemigrations
+'''
+- Penerapan migrasi dengan
+
+'''`shell`
+python manage.py migrate 
+'''
 
 8. Menghubungkan views dengan template
-- Tambahkan code berikut pada views.py di dalam aplikasi main ''' from django.shortcuts import render '''
+- Tambahkan code berikut pada `views.py` di dalam aplikasi `main` 
+'''`shell`
+from django.shortcuts import render 
+'''
+
 - Menambahkan fungsi show_main yang akan mengembalikan tampilan yang sesuai
 
 9. Konfigurasi URL
 - Konfigurasi url agar aplikasi main dapat diakses melalui web
-- jalankan proyek dengan perintah ''' python manage.py runserver ''' dan cek di http://localhost:8000 apakah berhasil
+- jalankan proyek 
 
 10. Melakukan Deploy pada Adaptable
 
