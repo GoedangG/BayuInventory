@@ -1,7 +1,7 @@
 from django.db import models
 
 class Product(models.Model):
-    inventory_owner = models.CharField(max_length=255)
-    item_name = models.CharField(max_length=255)
-    item_ammount = models.IntegerField()
-    item_description = models.TextField()
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField()
+    date = models.DateField(auto_now_add= True)

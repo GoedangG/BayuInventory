@@ -1,8 +1,41 @@
-<h1>Welcome To Bayu's Inventory!</h1>
 
-<h5>Inventory_Owner: </h5>
-<p>{{ Inventory_Owner }}<p>
-<h5>NPM: </h5>
-<p>{{ NPM }}<p>
-<h5>Description: </h5>
-<p>{{ Description }}</p>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome To Bayu's Inventory!</h1>
+
+    <h5>Name:</h5>
+    <p>{{name}}</p>
+
+    <h5>Class:</h5>
+    <p>{{class}}</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Date Added</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for product in products %}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.date}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Add New Product
+    </button>
+</a>
+
+{% endblock content %}
