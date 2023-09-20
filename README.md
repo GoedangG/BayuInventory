@@ -132,3 +132,22 @@ Kita tetap bisa membuat aplikasi web berbasis Django tanpa virtual environment, 
 - **Responsif untuk Aplikasi Web.**
 
 ### 4. Jelaskan bagaimana mengimplementasikan checklist di atas secara step-by-step
+1. Mengembangkan form input:
+    - Membuat `forms.py` di dalam folder "main". Hal ini untuk membuat struktur form yang dapat menerima data produk baru
+    - Pada `views.py` definisikan fungsi dengan nama `create_product` yang berguna dalam proses pengisian form
+    - Menambahkan fungsi untuk merender `create_product.html`
+    - Menambahkan `products = Product.objects.all()` di fungsi `show_main` pada `views.py` 
+    - Import fungsi `create_product` yang baru tadi dibuat, lalu tambahkan path url pada `urls.py` untuk bisa diakses
+    - Buat file `create_product.html` dalam folder "templates" di main
+    - Tambahkan kode di `main.html` untuk menampilkan data item dalam bentuk tabel dan menambahkan tombol "Add New Item" yang mengarahkan ke halaman pengisian item yang ingin ditambahkan
+2. Menyediakan fungsi views dalam berbagai format:
+    - Di dalam `views.py` definisikan fungsi `show_xml` lalu tambahkan path url agar dapat mengakses fungsi tersebut
+    - Definisikan fungsi `show_json` di `views.py` lalu ulangi hal yang sama pada fungsi `show_xml`
+    - Definisikan fungsi `show_json_by_id` (untuk json) dan `show_xml_by_id` (untuk xml) dan tambahkan path url ke dalam `urlpatterns` untuk mengakses fungsi.
+
+### 5. Mengakses kelima URL
+<img src= "image/image.png">
+<img src = "image/2.png">
+<img src = "image/3.png">
+<img src = "image/4.png">
+<img src = "image/5.png">
