@@ -151,3 +151,74 @@ Kita tetap bisa membuat aplikasi web berbasis Django tanpa virtual environment, 
 <img src = "image/3.png">
 <img src = "image/4.png">
 <img src = "image/5.png">
+
+# Jawaban Tugas 4
+
+### 1. Apa itu Django `UserCreationForm`, dan jelaskan apa kelebihan dan kekurangannya?
+Django UserCreationForm adalah salah satu komponen framework Django yang digunakan untuk membuat user registration form dalam aplikasi web yang memungkinkan user untuk membuat akun baru.
+1. Kelebihan:
+    - Mudah digunakan
+    - Fleksibel
+    - terintegrasi dengan Model User Django
+    - Kompatibel dengan Django's Authentication System
+2. Kekurangan:
+    - Tidak mendukung fitur lanjutan
+    - Tidak menjamin keamanan
+    - Memerlukan penanganan kesalahan tambahan
+
+### 2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+    Autentikasi adalah proses verifikasi identitas pengguna yang mencoba mengakses sistem atau aplikasi. Ini adalah langkah awal untuk menentukan siapa pengguna yang mencoba mengakses sumber daya.
+
+    Otorisasi adalah proses yang terjadi setelah autentikasi dan melibatkan pengendalian akses pengguna ke sumber daya tertentu atau tindakan dalam aplikasi. Ini berkaitan dengan perizinan yang diberikan kepada pengguna yang sudah terautentikasi.
+
+    Dalam kombinasi, autentikasi dan otorisasi membantu memastikan bahwa pengguna yang telah diotentikasi memiliki akses yang sesuai dan aman ke sumber daya dalam aplikasi 
+
+### 3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+    Cookies adalah mekanisme kecil yang digunakan dalam pengembangan aplikasi web untuk menyimpan data pada sisi klien 
+
+    Django memanfaatkan cookies untuk mengelola data sesi pengguna dengan cara:
+        - Membuat Sesi: Menghasilkan sesi pengguna dan ID sesi unik saat pertama kali masuk
+        - Menyimpan Data Sesi: Menyimpan informasi sesi dalam cookies dan mengenkripsinya jika diperlukan
+        - Mengakses Data Sesi: Membaca cookies pengguna saat permintaan berikutnya
+        - Memperbarui Data Sesi: Memperbolehkan pembuat untuk memperbarui data sesi pengguna
+        - Mengakhiri Sesi: Menghapus data sesi saat pengguna keluar atau sesi berakhir
+
+### 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+    Penggunaan cookies tidak selalu aman, ada risiko potensial yang harus diwaspadai seperti:
+    1. Kemanan data
+    2. Serangan Cross-Site Scripting
+    3. Cookie Theft
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. Mengimplementasikan fungsi regist, login, dan logout
+- Regist:
+    - menambahkan `redirect`, `UserCreationForm`, dan `messages` di `views.py`
+    - buat fungsi `register` yang membuat form registrasi dan membuat akun pengguna
+    - buat file HTML bernama `register.html` di `main/templates`
+    - masukan url di `urlpatterns`
+- Login:
+    - tambahkan fungsi `authenticate` dan `login` di `views.py`
+    - buat fungsi `login`
+    - buat file HTML baru bernama `login.html` di `main/templates` untuk tampilan halaman login
+    - tambahkan `login_user` ke `urls.py`
+    - masukan url di `urlpatterns`
+- Logout
+    - tambahkan fungsi `logout` di `views.py`
+    - buat fungsi `logout`
+    - di file `main.html` tambahkan code untuk tombol logout
+    - tambahkan `logout_user` ke `urls.py`
+    - masukan url di `urlpatterns`
+
+2. Membuat 2 akun dengan 3 dummy data
+    Melakukan registrasi 2 akun dan menambahkan 3 item sebagai dummy data
+
+3. Menghubungkan model Item dengan User
+- menambahkan `user` di `models.py`
+- sisipkan `ForeignKey` pada model untuk mengaitkan satu pengguna dengan satu produk
+    - modifikasi `create_item` di `views.py`
+    - sisipkan parameter `commit=false` untuk mencegah Django menyimpan objek ke database secara langsung
+    
+4. Menampilkan detail info yang sedang logged in
+- Menerapkan kondisi yang memeriksa apakah pengguna telah masuk atau belum dengan menggunakan `request.user.is_authenticated`
+- Jika telah masuk, tampilkan info pengguna dengan `request.user.username` dan `request.user.last_login`
+- Menggunakan cookies untuk menyimpan sesi login dengan menggunakan `django.contrib.sessions`
