@@ -222,3 +222,67 @@ Django UserCreationForm adalah salah satu komponen framework Django yang digunak
 - Menerapkan kondisi yang memeriksa apakah pengguna telah masuk atau belum dengan menggunakan `request.user.is_authenticated`
 - Jika telah masuk, tampilkan info pengguna dengan `request.user.username` dan `request.user.last_login`
 - Menggunakan cookies untuk menyimpan sesi login dengan menggunakan `django.contrib.sessions`
+
+# JAWABAN TUGAS 5
+
+### 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya
+
+1. Selector Element (h1, div):
+- Manfaat: Memilih elemen berdasarkan jenis atau nama elemen HTML.
+- Waktu yang tepat: Digunakan ketika ingin menerapkan gaya umum pada semua elemen dengan jenis yang sama.
+
+2. Selector Class (nama class):
+- Manfaat: Memilih elemen berdasarkan nama kelas yang diberikan.
+- Waktu yang tepat: Digunakan ketika ingin mengubah dengan class yang sama.
+
+3. Selector ID:
+- Manfaat: Memilih elemen berdasarkan ID unik yang diberikan.
+- Waktu yang tepat: Biasanya digunakan untuk menargetkan elemen yang sangat spesifik dan tidak digunakan berulang kali.
+
+### 2.  Jelaskan HTML5 Tag yang kamu ketahui.
+- <header>: Tag ini digunakan untuk menentukan bagian kepala dari sebuah elemen atau bagian dari halaman web, seperti judul, logo, atau navigasi.
+
+- <nav>: Digunakan untuk mengelompokkan tautan navigasi atau menu dalam halaman web.
+
+- <main>: Mendefinisikan konten utama dalam sebuah dokumen HTML dan biasanya hanya ada satu elemen <main> dalam satu halaman.
+
+- <section>: Mengelompokkan konten terkait dalam sebuah dokumen dan biasanya memiliki judul atau heading yang mendefinisikan bagian tersebut.
+
+- <article>: Menunjukkan konten independen yang dapat berdiri sendiri, seperti artikel berita atau postingan blog.
+
+- <aside>: Digunakan untuk mengelompokkan konten sampingan yang terkait dengan konten utama, seperti sidebar.
+
+- <footer>: Menggambarkan bagian bawah dari sebuah elemen atau halaman web, biasanya berisi informasi penulis, tautan ke kebijakan privasi, atau tautan sosial media.
+
+- <figure> dan <figcaption>: <figure> digunakan untuk mengelompokkan konten media, seperti gambar, video, atau grafik, sementara <figcaption> digunakan untuk menambahkan keterangan untuk media tersebut.
+
+- <a>: Tag ini digunakan untuk membuat tautan atau hyperlink ke halaman web lain atau ke bagian lain dalam halaman yang sama.
+
+- <img>: Untuk menampilkan gambar pada halaman web. Tag ini memiliki atribut src untuk menentukan sumber gambar.
+
+- <video>: Digunakan untuk menampilkan video pada halaman web. Anda dapat mengatur sumber video menggunakan atribut src dan mengontrol video dengan JavaScript.
+
+- <audio>: Mirip dengan <video>, tag ini digunakan untuk menampilkan file audio pada halaman web.
+
+- <canvas>: Digunakan untuk menggambar grafis, membuat animasi, atau melakukan rendering gambar dengan JavaScript.
+
+- <form>: Untuk membuat formulir interaktif yang memungkinkan pengguna untuk mengirimkan data ke server.
+
+- <input>: Bagian dari tag <form>, digunakan untuk membuat elemen input seperti teks, kata sandi, checkbox, dan banyak lagi.
+
+- <textarea>: Digunakan untuk membuat area teks yang lebih besar, seperti kolom komentar atau masukan teks panjang.
+
+- <button>: Membuat tombol interaktif yang dapat di-klik oleh pengguna.
+
+- <ul>, <ol>, dan <li>: Digunakan untuk membuat daftar tak terurut (unordered list) dan daftar terurut (ordered list) serta item-item dalam daftar tersebut.
+
+- <div>: Tag kontainer umum yang digunakan untuk mengelompokkan elemen-elemen HTML dan diberikan kelas atau ID untuk styling dan manipulasi JavaScript.
+
+### 3. Jelaskan perbedaan antara margin dan padding.
+1. Margin digunakan untuk mengatur ruang di luar batas elemen, yaitu antara elemen dan elemen-elemen lain di sekitarnya. Margin tidak mempengaruhi tampilan atau isi dari elemen itu sendiri, melainkan hanya menambahkan ruang ekstra di sekitarnya.
+
+2. Padding digunakan untuk mengatur ruang di antara batas elemen dan kontennya sendiri. Padding memengaruhi ruang di dalam elemen, di antara batas elemen dan kontennya, sehingga mengubah ukuran sebenarnya dari elemen tersebut.
+
+### 4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
