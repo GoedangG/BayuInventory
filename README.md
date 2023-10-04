@@ -240,43 +240,15 @@ Django UserCreationForm adalah salah satu komponen framework Django yang digunak
 - Waktu yang tepat: Biasanya digunakan untuk menargetkan elemen yang sangat spesifik dan tidak digunakan berulang kali.
 
 ### 2.  Jelaskan HTML5 Tag yang kamu ketahui.
-- <header>: Tag ini digunakan untuk menentukan bagian kepala dari sebuah elemen atau bagian dari halaman web, seperti judul, logo, atau navigasi.
-
-- <nav>: Digunakan untuk mengelompokkan tautan navigasi atau menu dalam halaman web.
-
-- <main>: Mendefinisikan konten utama dalam sebuah dokumen HTML dan biasanya hanya ada satu elemen <main> dalam satu halaman.
-
-- <section>: Mengelompokkan konten terkait dalam sebuah dokumen dan biasanya memiliki judul atau heading yang mendefinisikan bagian tersebut.
-
-- <article>: Menunjukkan konten independen yang dapat berdiri sendiri, seperti artikel berita atau postingan blog.
-
-- <aside>: Digunakan untuk mengelompokkan konten sampingan yang terkait dengan konten utama, seperti sidebar.
-
-- <footer>: Menggambarkan bagian bawah dari sebuah elemen atau halaman web, biasanya berisi informasi penulis, tautan ke kebijakan privasi, atau tautan sosial media.
-
-- <figure> dan <figcaption>: <figure> digunakan untuk mengelompokkan konten media, seperti gambar, video, atau grafik, sementara <figcaption> digunakan untuk menambahkan keterangan untuk media tersebut.
-
-- <a>: Tag ini digunakan untuk membuat tautan atau hyperlink ke halaman web lain atau ke bagian lain dalam halaman yang sama.
-
-- <img>: Untuk menampilkan gambar pada halaman web. Tag ini memiliki atribut src untuk menentukan sumber gambar.
-
-- <video>: Digunakan untuk menampilkan video pada halaman web. Anda dapat mengatur sumber video menggunakan atribut src dan mengontrol video dengan JavaScript.
-
-- <audio>: Mirip dengan <video>, tag ini digunakan untuk menampilkan file audio pada halaman web.
-
-- <canvas>: Digunakan untuk menggambar grafis, membuat animasi, atau melakukan rendering gambar dengan JavaScript.
-
-- <form>: Untuk membuat formulir interaktif yang memungkinkan pengguna untuk mengirimkan data ke server.
-
-- <input>: Bagian dari tag <form>, digunakan untuk membuat elemen input seperti teks, kata sandi, checkbox, dan banyak lagi.
-
-- <textarea>: Digunakan untuk membuat area teks yang lebih besar, seperti kolom komentar atau masukan teks panjang.
-
-- <button>: Membuat tombol interaktif yang dapat di-klik oleh pengguna.
-
-- <ul>, <ol>, dan <li>: Digunakan untuk membuat daftar tak terurut (unordered list) dan daftar terurut (ordered list) serta item-item dalam daftar tersebut.
-
-- <div>: Tag kontainer umum yang digunakan untuk mengelompokkan elemen-elemen HTML dan diberikan kelas atau ID untuk styling dan manipulasi JavaScript.
+- `<html>`  : Menandakan awal dan akhir dari dokumen HTML.
+- `<title>` : Mengatur judul dokumen HTML.
+- `<head>`  : Memberikan informasi tambahan tentang dokumen HTML.
+- `<h1 - h6>`: Digunakan untuk membuat judul dengan ukuran berbeda pada dokumen HTML.
+- `<p>`     : Menunjukkan awal dari paragraf pada HTML.
+- `<button>`: Membuat tombol yang dapat diklik pada HTML.
+- `<br>`    : Menghasilkan jeda baris untuk memberi ruang kosong di suatu baris.
+- `<table>` : Membuat tabel dengan baris dan kolom pada HTML.
+- `<div>`   : Menandai sebuah bagian atau divisi dalam HTML.
 
 ### 3. Jelaskan perbedaan antara margin dan padding.
 1. Margin digunakan untuk mengatur ruang di luar batas elemen, yaitu antara elemen dan elemen-elemen lain di sekitarnya. Margin tidak mempengaruhi tampilan atau isi dari elemen itu sendiri, melainkan hanya menambahkan ruang ekstra di sekitarnya.
@@ -284,5 +256,11 @@ Django UserCreationForm adalah salah satu komponen framework Django yang digunak
 2. Padding digunakan untuk mengatur ruang di antara batas elemen dan kontennya sendiri. Padding memengaruhi ruang di dalam elemen, di antara batas elemen dan kontennya, sehingga mengubah ukuran sebenarnya dari elemen tersebut.
 
 ### 4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+1. Perbedaan:
+    `Tailwind` adalah framework CSS yang mengadopsi pendekatan "utility-first" sedangkan `Bootstrap` menggunakan pendekatan "komponen" dan Bootstrap menyediakan sejumlah komponen UI siap pakai yang dapat langsung digunakan.
+2. Kapan sebaiknya menggunakan?
+    - `Bootsrap`: Ingin membangun web dengan sedikit desain atau menggunakan komponen siap pakai
+    - `Tailwind`: Ingin tingkat kustomisasi yang tinggi dan total kontrol atas tampilan situs web.
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
+Melakukan kustomisasi tampilan `login.html`, `main.html`, `register.html`, dan `create_product.html` dengan menggunakan CSS

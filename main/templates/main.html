@@ -3,46 +3,52 @@
 {% block content %}
     <h1>Welcome To {{name}}'s Inventory!</h1>
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Name:</h5>
+            <p class="card-text">{{ name }}</p>
 
-    <h5>Class:</h5>
-    <p>{{class}}</p>
+            <h5 class="card-title">Class:</h5>
+            <p class="card-text">{{ class }}</p>
+        </div>
+    </div>  
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Ammount</th>
-        <th>Description</th>
-        <th>Date Added</th>
-    </tr>
+    <table style="width: 100%; margin-top: 20px;">
+        <tr>
+            <th style="padding-right: 20px;">Name</th>
+            <th style="padding-right: 20px;">Amount</th>
+            <th style="padding-right: 20px;">Description</th>
+            <th style="padding-right: 20px;">Date Added</th>
+        </tr>
 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
     {% for product in products %}
         <tr>
-            <td>{{product.name}}</td>
-            <td>{{product.amount}}</td>
-            <td>{{product.description}}</td>
-            <td>{{product.date}}</td>
+            <td style="padding-right: 20px;">{{product.name}}</td>
+            <td style="padding-right: 20px;">{{product.amount}}</td>
+            <td style="padding-right: 20px;">{{product.description}}</td>
+            <td style="padding-right: 20px;">{{product.date}}</td>
         </tr>
     {% endfor %}
 </table>
 
 <br />
+<div style="margin-top: 20px;">
+    <a href="{% url 'main:create_product' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
+</div>
 
-<a href="{% url 'main:create_product' %}">
-    <button>
-        Add New Product
-    </button>
-</a>
+<div style="margin-top: 20px;">
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
+</div>
 
 <h5>Sesi terakhir login: {{ last_login }}</h5>
-
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
-
 {% endblock content %}
