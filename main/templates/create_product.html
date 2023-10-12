@@ -1,62 +1,30 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
 {% block content %}
-    <style>
-        /* Gaya untuk judul "Add New Product" */
-        h1 {
-            text-align: center;
-            color: #333;
-        }
+<style>
+    .card {
+        background-color: #000000; 
+        color : #feffff;
+        margin-top: 100px;
+        width: 600px
+    }
+    .btn-custom{
+        background-color: #2b7a78;
+        color: #feffff;
+    }
+</style>
 
-        /* Gaya untuk form */
-        form {
-            width: 300px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0px 0px 5px 0px #aaa;
-        }
+<div class="card mx-auto" style="max-width: 400px;">
+    <div class="card-body">
+        <h1 class="card-title" style="text-align: center;">Add New Product</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center mt-3">
+                <input type="submit" value="Add Product" class="btn btn-custom">
+            </div>
+        </form>
+    </div>
+</div>
 
-        /* Gaya untuk tabel form */
-        table {
-            width: 100%;
-        }
-
-        /* Gaya untuk input */
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        /* Gaya untuk tombol "Add Product" */
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-    </style>
-    
-    <h1>Add New Product</h1>
-
-    <form method="POST">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Add Product"/>
-                </td>
-            </tr>
-        </table>
-    </form>
 {% endblock %}
