@@ -264,3 +264,7 @@ Django UserCreationForm adalah salah satu komponen framework Django yang digunak
 
 ### 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
 Melakukan kustomisasi tampilan `login.html`, `main.html`, `register.html`, dan `create_product.html` dengan menggunakan CSS
+
+# JAWABAN TUGAS 6
+
+### 1. 

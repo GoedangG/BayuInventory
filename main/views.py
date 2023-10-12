@@ -1,16 +1,15 @@
 from django.contrib.auth import authenticate, login, logout
 import datetime
-from django.http import HttpResponseRedirect
 from main.forms import ProductForm
 from django.urls import reverse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from main.models import Product
 from django.core import serializers
-from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages  
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -100,3 +99,21 @@ def edit(request, id):
     
     context = {'form': form}
     return render(request, "edit_product.html", context)
+
+def get_product_json(request):
+    product_item = Product.objects.all()
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        ammount = request.POST.get("ammount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Product(name=name, ammount=ammount, description=description, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound()
