@@ -267,4 +267,101 @@ Melakukan kustomisasi tampilan `login.html`, `main.html`, `register.html`, dan `
 
 # JAWABAN TUGAS 6
 
-### 1. 
+### 1. AJAX GET
+
+### 2. AJAX POST
+1. Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item.
+    - Menambahkan kode dibawah pada `main.html`
+    ```
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ammount" class="col-form-label">Ammount:</label>
+                            <input type="number" class="form-control" id="ammount" name="ammount"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    ```
+2. Membuat button ADD BY AJAX
+    ```
+    <div class="btn-group" style="margin-top: 10px;">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+    </div>
+    ```
+    Disini saya ubah tampilannya agar sama dengan button lainnya
+
+3. Buatlah path `/create-ajax/` yang mengarah ke fungsi *view* yang baru kamu buat.
+    - Menambahkan Routing Untuk Fungsi `add_item_ajax` pada `urls.py`
+    - Menambahkan Routing Untuk Fungsi `get_item_json` pada `urls.py`
+
+4. Hubungkan form yang telah kamu buat di dalam modal kamu ke *path* `/create-ajax/`.
+    - Tambahkan fungsi `addProduct` pada `<script>` di `main.html`
+        ```
+            function addProduct() {
+                fetch("{% url 'main:add_product_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+                }).then(refreshProducts)
+
+                document.getElementById("form").reset()
+                return false
+                }
+        ```
+5. Lakukan *refresh* pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa *reload* halaman utama secara keseluruhan.
+
+### 3. Melakukan perintah collectstatic
+1. Menambahkan kode berikut di `settings.py`
+    ```
+    STATIC_URL = 'static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    ```
+2. Menjalankan perintah `python manage.py collectstatic` pada cmd
+
+### 4. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+1. Asynchronous:
+    - Pada programming asynchronous, tugas-tugas dapat dieksekusi secara bersamaan tanpa harus menunggu tugas sebelumnya selesai.
+    - Ini memungkinkan program untuk menjalankan operasi yang membutuhkan waktu lama (seperti I/O operasi atau jaringan) tanpa menghentikan eksekusi program utama.
+    - Asynchronous programming umumnya digunakan dalam aplikasi yang perlu menangani banyak operasi I/O paralel, seperti web servers atau aplikasi berbasis jaringan.
+2. Synchronous:
+    - Pada programming synchronous, tugas-tugas dieksekusi satu per satu dalam urutan tertentu.
+    - Ketika sebuah tugas atau fungsi dipanggil, program akan menunggu sampai tugas tersebut selesai sebelum melanjutkan eksekusi berikutnya. Ini berarti program berjalan secara linier.
+    - Synchronous programming cocok untuk tugas-tugas sederhana yang dieksekusi dalam waktu singkat.
+
+### 5. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Paradigma event-driven programming adalah suatu pendekatan dalam pemrograman di mana program merespons peristiwa (events) yang terjadi, seperti tindakan pengguna, sinyal dari sistem, atau perubahan dalam keadaan program. Contohnya pada tugas ini yaitu `Add Product` dan `Delete`
+
+### 6. Jelaskan penerapan asynchronous programming pada AJAX.
+Pemrograman asinkron dalam AJAX memungkinkan operasi seperti pengambilan data dari server untuk dilakukan tanpa mengganggu jalannya eksekusi kode utama, sehingga aplikasi web tetap mampu menjawab dengan respons cepat dan efisien. Cara mencapainya adalah dengan memanfaatkan fungsi callback, promise, atau async/await untuk mengelola respon dari server.
+
+### 7. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+1. Fetch API:
+    - Fetch API mengembalikan respon sebagai objek Response, yang memungkinkan Anda untuk mengelola data dan status respon dengan lebih baik.
+    - Lebih ringan dan sederhana, merupakan bagian dari JavaScript modern, memungkinkan pengiriman permintaan HTTP secara asinkron dengan efisien.
+2. Library Jquery:
+    - Ukuran pustaka jQuery lebih besar daripada Fetch API, sehingga mungkin tidak seefisien Fetch API untuk aplikasi web yang lebih kecil.
+    - memiliki metode `$.ajax()` dan `.get()`, `.post()`, dan lain-lain, yang memudahkan untuk melakukan permintaan AJAX.
+    
+Menurut saya, Fetch API adalah opsi yang lebih baik karena lebih mudah digunakan dan memiliki performa yang lebih baik dan responsif dibandingkan dengan jQuery yang lebih berat.
