@@ -268,6 +268,54 @@ Melakukan kustomisasi tampilan `login.html`, `main.html`, `register.html`, dan `
 # JAWABAN TUGAS 6
 
 ### 1. AJAX GET
+1. Menambahkan `id = "product_table"`
+
+2. Menambahkan kode 
+    ```
+    async function refreshProducts() {
+            document.getElementById("product_table").innerHTML = ""
+            const products = await getProducts();
+            let htmlString = 
+            `<div class="row" style="margin-top: 20px;" id="product_table">
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap">`
+
+            products.forEach((item) => {
+                htmlString += 
+                `<div class="card" style="width: 18rem; margin-right: 20px; margin-bottom: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Name:</h5>
+                        <p class="card-text">${ item.fields.name }</p>
+
+                        <h5 class="card-title">Amount:</h5>
+                        <p class="card-text">${item.fields.amount }</p>
+
+                        <h5 class="card-title">Description:</h5>
+                        <p class="card-text">${ item.fields.description }</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="edit/${item.pk}" class="btn btn-primary">
+                            Edit
+                        </a>
+                        <a href="delete/${ item.pk }" class="btn btn-danger">
+                            Delete
+                        </a>
+                    </div>
+                </div>`
+            }) 
+            htmlString +=`</div>
+                        </div>
+                        </div>`
+            document.getElementById("product_table").innerHTML = htmlString;
+        }
+    ```
+3. Menambahkan fungsi get_item_json pada `views.py`
+4. Menambahkan kode
+    ```
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json());
+    }
+    ```
 
 ### 2. AJAX POST
 1. Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item.

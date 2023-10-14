@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="row" style="margin-top: 20px;" id="add_product">
+    <div class="row" style="margin-top: 20px;" id="product_table">
         <div class="col-md-8">
             <div class="d-flex flex-wrap">
                 {% for product in products %}
@@ -50,7 +50,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="form" onsubmit="return false;">
+                    <form id="form" onsubmit="return false;" method="POST">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="name" class="col-form-label">Name:</label>
@@ -94,20 +94,37 @@
         async function refreshProducts() {
             document.getElementById("product_table").innerHTML = ""
             const products = await getProducts();
-            let htmlString = `<tr>
-                <th>Name</th>
-                <th>Ammount</th>
-                <th>Description</th>
-                <th>Date Added</th>
-            </tr>`
+            let htmlString = 
+            `<div class="row" style="margin-top: 20px;" id="product_table">
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap">`
+
             products.forEach((item) => {
-                htmlString += `\n<tr>
-                <td>${item.fields.name}</td>
-                <td>${item.fields.ammount}</td>
-                <td>${item.fields.description}</td>
-                <td>${item.fields.date_added}</td>
-            </tr>`
-            })
+                htmlString += 
+                `<div class="card" style="width: 18rem; margin-right: 20px; margin-bottom: 20px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Name:</h5>
+                        <p class="card-text">${ item.fields.name }</p>
+
+                        <h5 class="card-title">Amount:</h5>
+                        <p class="card-text">${item.fields.amount }</p>
+
+                        <h5 class="card-title">Description:</h5>
+                        <p class="card-text">${ item.fields.description }</p>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="edit/${item.pk}" class="btn btn-primary">
+                            Edit
+                        </a>
+                        <a href="delete/${ item.pk }" class="btn btn-danger">
+                            Delete
+                        </a>
+                    </div>
+                </div>`
+            }) 
+            htmlString +=`</div>
+                        </div>
+                        </div>`
             document.getElementById("product_table").innerHTML = htmlString;
         }
         refreshProducts()
