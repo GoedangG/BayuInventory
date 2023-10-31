@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 import datetime
 from main.forms import ProductForm
 from django.urls import reverse
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from main.models import Product
 from django.core import serializers
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
@@ -103,6 +103,19 @@ def edit(request, id):
 def get_product_json(request):
     product_item = Product.objects.all()
     return HttpResponse(serializers.serialize('json', product_item))
+
+def decrement(request, id):
+    product = get_object_or_404(Product, id)
+    if product.amount > 0:
+        product.amount -= 1
+        product.save()
+    return redirect('main:show_main')
+
+def increment(request, id):
+    product = get_object_or_404(Product, id)
+    product.amount += 1
+    product.save()
+    return redirect('main:show_main')
 
 @csrf_exempt
 def add_product_ajax(request):
