@@ -24,6 +24,7 @@ def show_main(request):
     }
     return render(request, "main.html", context)
 
+@csrf_exempt
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -45,6 +46,7 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+@csrf_exempt
 def register(request):
     form = UserCreationForm()
 
